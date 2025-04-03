@@ -1,3 +1,18 @@
+/* Add styles for the custom date container */
+.custom-date-container {
+    padding: 15px;
+    border-top: 1px solid #eee;
+    margin-top: 15px;
+}
+
+.custom-date-container .filters-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    align-items: end;
+}
+
+/* Rest of the CSS remains unchanged */
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -285,3 +300,4 @@ th {
         overflow-x: auto;
     }
 }
+

@@ -105,7 +105,24 @@
                                 <option value="last-month">Last Month</option>
                                 <option value="this-year">This Year</option>
                                 <option value="custom">Custom</option>
+                                <option value="all-time">All Time</option>
                             </select>
+                        </div>
+                    </div>
+                    <!-- Custom date range container -->
+                    <div id="custom-date-container" class="custom-date-container" style="display: none; margin-top: 15px;">
+                        <div class="filters-container">
+                            <div class="filter">
+                                <label for="start-date">Start Date</label>
+                                <input type="date" id="start-date">
+                            </div>
+                            <div class="filter">
+                                <label for="end-date">End Date</label>
+                                <input type="date" id="end-date">
+                            </div>
+                            <div class="filter" style="display: flex; align-items: flex-end;">
+                                <button id="apply-custom-date" class="secondary-btn">Apply</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -145,7 +162,19 @@
                                 <option value="last-3-months">Last 3 Months</option>
                                 <option value="this-year">This Year</option>
                                 <option value="custom">Custom</option>
+                                <option value="all-time">All Time</option>
                             </select>
+                        </div>
+                        <!-- Custom date range for reports -->
+                        <div id="report-custom-date-container" class="custom-date-container" style="display: none;">
+                            <div class="filter">
+                                <label for="report-start-date">Start Date</label>
+                                <input type="date" id="report-start-date">
+                            </div>
+                            <div class="filter">
+                                <label for="report-end-date">End Date</label>
+                                <input type="date" id="report-end-date">
+                            </div>
                         </div>
                         <button id="generate-report-btn" class="primary-btn">Generate Report</button>
                     </div>
@@ -240,3 +269,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
