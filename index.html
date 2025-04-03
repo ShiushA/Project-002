@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense & Income Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Expense & Income Tracker</h1>
+            <nav>
+                <ul>
+                    <li><button id="dashboard-btn" class="nav-btn active">Dashboard</button></li>
+                    <li><button id="transactions-btn" class="nav-btn">Transactions</button></li>
+                    <li><button id="reports-btn" class="nav-btn">Reports</button></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main id="main-content">
+            <!-- Dashboard View -->
+            <section id="dashboard" class="view active">
+                <div class="summary-cards">
+                    <div class="card">
+                        <h3>Total Income</h3>
+                        <p id="total-income" class="amount income">$5000.00</p>
+                    </div>
+                    <div class="card">
+                        <h3>Total Expenses</h3>
+                        <p id="total-expenses" class="amount expense">$2000.00</p>
+                    </div>
+                    <div class="card">
+                        <h3>Current Balance</h3>
+                        <p id="current-balance" class="amount balance">$3000.00</p>
+                    </div>
+                </div>
+
+                <div class="charts-container">
+                    <div class="card chart-card">
+                        <h3>Income vs Expenses</h3>
+                        <div id="income-vs-expenses-chart" class="chart"></div>
+                    </div>
+                    <div class="card chart-card">
+                        <h3>Expense Categories</h3>
+                        <div id="expense-categories-chart" class="chart"></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Recent Transactions</h3>
+                    <table id="recent-transactions">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recent-transactions-body">
+                            <!-- Transactions will be inserted here by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Transactions View -->
+            <section id="transactions" class="view">
+                <div class="transactions-header">
+                    <h2>Transactions</h2>
+                    <button id="add-transaction-btn" class="primary-btn">
+                        <span class="icon">+</span> Add Transaction
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h3>Filters</h3>
+                    <div class="filters-container">
+                        <div class="filter">
+                            <label for="category-filter">Category</label>
+                            <select id="category-filter">
+                                <option value="all">All Categories</option>
+                            </select>
+                        </div>
+                        <div class="filter">
+                            <label for="type-filter">Type</label>
+                            <select id="type-filter">
+                                <option value="all">All Types</option>
+                                <option value="income">Income</option>
+                                <option value="expense">Expense</option>
+                            </select>
+                        </div>
+                        <div class="filter">
+                            <label for="date-filter">Date Range</label>
+                            <select id="date-filter">
+                                <option value="this-month">This Month</option>
+                                <option value="last-month">Last Month</option>
+                                <option value="this-year">This Year</option>
+                                <option value="custom">Custom</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <table id="transactions-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Description</th>
+                                <th>Category</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactions-body">
+                            <!-- Transactions will be inserted here by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Reports View -->
+            <section id="reports" class="view">
+                <h2>Reports</h2>
+                
+                <div class="card">
+                    <h3>Date Range</h3>
+                    <div class="date-range-selector">
+                        <div class="filter">
+                            <label for="report-period">Select Period</label>
+                            <select id="report-period">
+                                <option value="current-month">Current Month</option>
+                                <option value="last-month">Last Month</option>
+                                <option value="last-3-months">Last 3 Months</option>
+                                <option value="this-year">This Year</option>
+                                <option value="custom">Custom</option>
+                            </select>
+                        </div>
+                        <button id="generate-report-btn" class="primary-btn">Generate Report</button>
+                    </div>
+                </div>
+
+                <div class="summary-cards">
+                    <div class="card">
+                        <h3>Total Income</h3>
+                        <p id="report-total-income" class="amount income">$0.00</p>
+                    </div>
+                    <div class="card">
+                        <h3>Total Expenses</h3>
+                        <p id="report-total-expenses" class="amount expense">$0.00</p>
+                    </div>
+                    <div class="card">
+                        <h3>Net Balance</h3>
+                        <p id="report-net-balance" class="amount balance">$0.00</p>
+                    </div>
+                </div>
+
+                <div class="card chart-card">
+                    <h3>Income vs Expenses</h3>
+                    <div id="report-income-vs-expenses" class="chart"></div>
+                </div>
+
+                <div class="card chart-card">
+                    <h3>Expense Categories</h3>
+                    <div id="report-expense-categories" class="chart"></div>
+                </div>
+
+                <div class="card chart-card">
+                    <h3>Monthly Trends</h3>
+                    <div id="monthly-trends" class="chart"></div>
+                </div>
+
+                <div class="export-buttons">
+                    <button id="export-csv" class="secondary-btn">
+                        <span class="icon">↓</span> Export as CSV
+                    </button>
+                    <button id="export-pdf" class="secondary-btn">
+                        <span class="icon">↓</span> Export as PDF
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal for adding/editing transactions -->
+    <div id="transaction-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-title">Add Transaction</h2>
+            <form id="transaction-form">
+                <div class="form-group">
+                    <label for="transaction-type">Type</label>
+                    <select id="transaction-type" required>
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="transaction-amount">Amount</label>
+                    <input type="number" id="transaction-amount" step="0.01" min="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="transaction-date">Date</label>
+                    <input type="date" id="transaction-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="transaction-time">Time</label>
+                    <input type="time" id="transaction-time" required>
+                </div>
+                <div class="form-group">
+                    <label for="transaction-description">Description</label>
+                    <input type="text" id="transaction-description" required>
+                </div>
+                <div class="form-group">
+                    <label for="transaction-category">Category</label>
+                    <select id="transaction-category" required>
+                        <!-- Categories will be populated by JavaScript -->
+                    </select>
+                </div>
+                <input type="hidden" id="transaction-id">
+                <div class="form-actions">
+                    <button type="submit" class="primary-btn">Save</button>
+                    <button type="button" class="secondary-btn" id="cancel-transaction">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
