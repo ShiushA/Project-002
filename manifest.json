@@ -4,8 +4,9 @@
   "description": "Track your expenses and income ",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff",
+  "theme_color": "#4158D0",
+  "background_color": "#4158D0",
+  "orientation": "portrait-primary",
   "icons":[
     {
       "src": "/icon/favicon-96x96.png",
