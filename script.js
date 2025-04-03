@@ -1,5 +1,59 @@
 // Initialize the application when the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
+    // Sample data for the application
+    const sampleData = {
+      transactions: [
+        {
+          id: 1,
+          date: "2024-01-20",
+          time: "09:00",
+          description: "Salary",
+          category: "Income",
+          type: "income",
+          amount: 5000.0,
+        },
+        {
+          id: 2,
+          date: "2024-01-15",
+          time: "14:30",
+          description: "Rent",
+          category: "Housing",
+          type: "expense",
+          amount: 1500.0,
+        },
+        {
+          id: 3,
+          date: "2024-01-10",
+          time: "12:15",
+          description: "Groceries",
+          category: "Food",
+          type: "expense",
+          amount: 300.0,
+        },
+        {
+          id: 4,
+          date: "2024-01-05",
+          time: "10:00",
+          description: "Freelance",
+          category: "Income",
+          type: "income",
+          amount: 1000.0,
+        },
+        {
+          id: 5,
+          date: "2024-01-01",
+          time: "08:45",
+          description: "Utilities",
+          category: "Bills",
+          type: "expense",
+          amount: 200.0,
+        },
+      ],
+      categories: {
+        income: ["Salary", "Freelance", "Investments", "Other"],
+        expense: ["Housing", "Food", "Transportation", "Entertainment", "Bills", "Other"],
+      },
+    }
   
     // Application state
     const appState = {
